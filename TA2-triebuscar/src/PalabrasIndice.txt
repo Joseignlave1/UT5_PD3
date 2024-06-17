@@ -7,7 +7,6 @@ boxer
 brain
 calling 
 campaign 
-cesspool 
 chemistry
 coffee
 companion
@@ -19,7 +18,6 @@ doctor
 enthusiasm
 excess
 existence
-expense
 fact
 fellow 
 fire 
@@ -44,7 +42,6 @@ passion
 pencil 
 people
 philosophy
-point
 politics
 portal
 science
@@ -57,5 +54,3 @@ surprise
 swordsman
 temperance
 violin
-year
- 

@@ -18,7 +18,9 @@ public class Main {
         trie.imprimir();
          */
 
-        TArbolTrie trie = new TArbolTrie();
+
+        /*
+         TArbolTrie trie = new TArbolTrie();
 
 
         String[] lineas = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
@@ -35,5 +37,19 @@ public class Main {
         System.out.println("Buscar 'arbol': " + trie.buscar("arbol"));
         System.out.println("Buscar 'grito': " + trie.buscar("grito"));
         System.out.println("Buscar 'casamientos': " + trie.buscar("casamientos"));
+         */
+        TArbolTrie trie = new TArbolTrie();
+
+        String[] palabrasIndice = ManejadorArchivosGenerico.leerArchivo("PalabrasIndice.txt");
+        for (String palabra : palabrasIndice) {
+            trie.insertar(palabra);
+        }
+
+        trie.indizarLibro("libro.txt");
+
+        trie.imprimirIndice();
+
     }
+
+
 }

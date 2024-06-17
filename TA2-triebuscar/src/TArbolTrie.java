@@ -1,7 +1,4 @@
-
-
 import java.util.LinkedList;
-
 
 public class TArbolTrie implements IArbolTrie {
 
@@ -13,6 +10,13 @@ public class TArbolTrie implements IArbolTrie {
             raiz = new TNodoTrie();
         }
         raiz.insertar(palabra);
+    }
+
+    public void insertarConPagina(String palabra, int pagina) {
+        if (raiz == null) {
+            raiz = new TNodoTrie();
+        }
+        raiz.insertarConPagina(palabra, pagina);
     }
 
     @Override
@@ -30,10 +34,44 @@ public class TArbolTrie implements IArbolTrie {
         return raiz.buscar(palabra);
     }
 
+    public LinkedList<Integer> obtenerPaginas(String palabra) {
+        if (raiz == null) {
+            return null;
+        }
+        return raiz.obtenerPaginas(palabra);
+    }
+
     @Override
     public LinkedList<String> predecir(String prefijo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LinkedList<String> palabras = new LinkedList<>();
+        if (raiz != null) {
+            raiz.predecir(prefijo, palabras);
+        }
+        return palabras;
     }
-    
-    
+
+    public void indizarLibro(String archivoLibro) {
+        String[] lineas = ManejadorArchivosGenerico.leerArchivo(archivoLibro);
+        int pagina = 1;
+        int lineasPorPagina = 50;
+        int lineasLeidas = 0;
+
+        for (String linea : lineas) {
+            String[] palabras = linea.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
+            for (String palabra : palabras) {
+                if (!palabra.isEmpty()) {
+                    insertarConPagina(palabra, pagina);
+                }
+            }
+            lineasLeidas++;
+            if (lineasLeidas >= lineasPorPagina) {
+                pagina++;
+                lineasLeidas = 0;
+            }
+        }
+    }
+
+    public void imprimirIndice() {
+        imprimir();
+    }
 }
