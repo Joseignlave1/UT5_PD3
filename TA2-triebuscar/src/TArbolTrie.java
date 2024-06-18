@@ -74,4 +74,20 @@ public class TArbolTrie implements IArbolTrie {
     public void imprimirIndice() {
         imprimir();
     }
+
+    public String buscarDetalles(String palabra) {
+        if (raiz == null) {
+            return "La palabra '" + palabra + "' no se encuentra en el índice.";
+        }
+        int comparaciones = raiz.buscar(palabra);
+        if (comparaciones > 0) {
+            LinkedList<Integer> paginas = raiz.obtenerPaginas(palabra);
+            return "La palabra '" + palabra + "' se encuentra en el índice.\n" +
+                    "Cantidad de comparaciones realizadas: " + comparaciones + "\n" +
+                    "Páginas: " + paginas.toString();
+        } else {
+            return "La palabra '" + palabra + "' no se encuentra en el índice.\n" +
+                    "Cantidad de comparaciones realizadas: " + comparaciones;
+        }
+    }
 }
