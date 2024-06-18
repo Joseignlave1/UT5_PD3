@@ -38,16 +38,27 @@ public class Main {
         System.out.println("Buscar 'grito': " + trie.buscar("grito"));
         System.out.println("Buscar 'casamientos': " + trie.buscar("casamientos"));
          */
-        TArbolTrie trie = new TArbolTrie();
 
-        String[] palabrasIndice = ManejadorArchivosGenerico.leerArchivo("PalabrasIndice.txt");
-        for (String palabra : palabrasIndice) {
-            trie.insertar(palabra);
-        }
+        /*
+        
+                EJERCICIO 2
+                TArbolTrie trie = new TArbolTrie();
 
-        trie.indizarLibro("libro.txt");
+                String[] palabrasIndice = ManejadorArchivosGenerico.leerArchivo("PalabrasIndice.txt");
+                for (String palabra : palabrasIndice) {
+                    trie.insertar(palabra);
+                }
 
-        trie.imprimirIndice();
+                trie.indizarLibro("libro.txt");
+
+                trie.imprimirIndice();
+
+                System.out.println(trie.buscarDetalles("surprised"));
+                System.out.println(trie.buscarDetalles("casamiento"));
+                System.out.println(trie.buscarDetalles("arbol"));
+                System.out.println(trie.buscarDetalles("grito"));
+                System.out.println(trie.buscarDetalles("casamientos"));
+         */
 
     }
 
